@@ -3,12 +3,11 @@ import { useState, useEffect } from "react";
 export default function TarefasSimples() {
 
     // Aqui a regra de negocio
-    const [tarefas, setTarefas] = useState([])
+    const [listaDeTarefas, setListaDeTarefas] = useState([])
     const [novaTarefa, setNovaTarefa] = useState("")
 
     function adicionarTarefa() {
-        alert(novaTarefa);
-        setTarefas(novaTarefa)
+        setListaDeTarefas([...novaTarefa])
     }
 
     return (
@@ -34,8 +33,17 @@ export default function TarefasSimples() {
                     </button>
                 </div>
 
-                <ul class="list-group text-start mt-2">
-                    <li class="list-group-item">{tarefas}</li>
+
+                <ul className="list-group text-start mt-2">
+
+                    {listaDeTarefas.length == 0 && (
+                        <li className="list-group-item text-center text-muted">Nenhuma tarefa adicionada</li>
+                    )}
+
+
+                    {listaDeTarefas.map((tarefa, index) => (
+                        <li className="list-group-item">{tarefa}</li>
+                    ))}
                 </ul>
                 
             </div>
