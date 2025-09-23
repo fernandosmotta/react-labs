@@ -6,9 +6,45 @@ export default function TarefasSimples() {
     const [listaDeTarefas, setListaDeTarefas] = useState([])
     const [novaTarefa, setNovaTarefa] = useState("")
 
+    // adiciona uma nova tarefa
     function adicionarTarefa() {
-        setListaDeTarefas([...novaTarefa])
+        if(novaTarefa.trim() == "") { // Caso não for digitado nada
+            return
+        }
+
+        setListaDeTarefas([...listaDeTarefas, novaTarefa])
+        setNovaTarefa("");
     }
+
+    // Dispara quando clicar no botão 'ENTER' dentro do input
+    function confirmaBotaoEnter(e) {
+        if(e.key === 'Enter') {
+            adicionarTarefa();
+        }
+    }
+
+    // Remove todas as tarefas da lista
+    function limparTarefa() {
+        setListaDeTarefas([])
+    }
+
+    // Remove apenas uma tarefa da lista
+    function removerTarefa(index) {
+        // Cria uma nova lista sem a tarefa que está no indice recebido
+        const listaAtualizada = listaDeTarefas.filter((tarefa, i) => {
+            return i != index
+        });
+        
+        // adiciona o estado com a nova lista
+        setListaDeTarefas(listaAtualizada)
+    }
+
+    function ordenarTarefas() {
+        const listaOrdenada = [...listaDeTarefas].sort((a,b) => a.localeCompare(b))
+        setListaDeTarefas(listaOrdenada)
+    }
+
+
 
     return (
         <>
@@ -25,11 +61,20 @@ export default function TarefasSimples() {
                            placeholder="Digite a nova tarefa"
                            value={novaTarefa} 
                            onChange={(e) => setNovaTarefa(e.target.value)}
+                           onKeyDown={confirmaBotaoEnter}
                     />
 
                     <button className="btn btn-primary" 
                             onClick={adicionarTarefa}>
                         Adicionar
+                    </button>
+                    <button className="btn btn-info"
+                            onClick={ordenarTarefas}>
+                        Ordenar
+                    </button>
+                    <button className="btn btn-danger"
+                            onClick={limparTarefa}>
+                        Limpar
                     </button>
                 </div>
 
@@ -42,8 +87,18 @@ export default function TarefasSimples() {
 
 
                     {listaDeTarefas.map((tarefa, index) => (
-                        <li className="list-group-item">{tarefa}</li>
+                        <li 
+                            key={index} 
+                            className="list-group-item d-flex justify-content-between"
+                        >
+                            {tarefa}
+                            <button className="btn btn-danger btn-sm"
+                                    onClick={() => removerTarefa(index)}>
+                                Remover
+                            </button>
+                        </li>
                     ))}
+
                 </ul>
                 
             </div>
