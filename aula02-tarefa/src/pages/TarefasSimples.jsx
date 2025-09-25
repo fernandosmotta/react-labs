@@ -6,6 +6,22 @@ export default function TarefasSimples() {
     const [listaDeTarefas, setListaDeTarefas] = useState([])
     const [novaTarefa, setNovaTarefa] = useState("")
 
+
+    // Persistir os dados localmente
+    
+    // Executar sempre que a "listaDeTarefas" for alterada.
+    useEffect(() => {
+        if(listaDeTarefas.length > 0) {
+            /**
+             * Como a listaDeTarefas é um array em JS, o JSON.stringify
+             * é utilizado para converter em formato de texto (json)
+             */
+            localStorage.setItem("tarefasSimples", JSON.stringify(listaDeTarefas))
+        }
+    }, [listaDeTarefas])
+
+    
+
     // adiciona uma nova tarefa
     function adicionarTarefa() {
         if(novaTarefa.trim() == "") { // Caso não for digitado nada
