@@ -6,8 +6,22 @@ export default function TarefasSimples() {
     const [listaDeTarefas, setListaDeTarefas] = useState([])
     const [novaTarefa, setNovaTarefa] = useState("")
 
+    // ------------------------------------------------------
+    // # Leitura das tarefas do localStorage
+    // ------------------------------------------------------
 
-    // Persistir os dados localmente
+    useEffect(() => {
+        const tarefasSalvas = localStorage.getItem("tarefasSimples")
+        if (tarefasSalvas) {
+            setListaDeTarefas(JSON.parse(tarefasSalvas))
+        }
+    }, [])
+    // O segundo parâmetro [] indica que este código será executado apenas uma vez, quando a página for carregada
+
+
+    // ------------------------------------------------------
+    // # Persistir os dados localmente
+    // ------------------------------------------------------
     
     // Executar sempre que a "listaDeTarefas" for alterada.
     useEffect(() => {

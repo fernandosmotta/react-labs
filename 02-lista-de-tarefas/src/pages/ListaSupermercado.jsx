@@ -6,6 +6,22 @@ export default function ListaSupermercado() {
   const [novoItem, setNovoItem] = useState("")
 
 
+  // Carrega os dados do LocalStorage
+  useEffect(() => {
+    const listaMercadoSalvo = localStorage.getItem("listaDeMercado")
+    if(listaMercadoSalvo) {
+      setItens(JSON.parse(listaMercadoSalvo))
+    }
+  }, [])
+
+  // Grava os itens do LocalStorage do Navegador
+  useEffect(() => {
+    if(itens.length > 0) {
+      localStorage.setItem("listaDeMercado", JSON.stringify(itens))
+    }
+  }, [itens])
+
+
   function adicionarItem() {
     if (novoItem.trim() == "") {
       return
@@ -27,6 +43,14 @@ export default function ListaSupermercado() {
     const listaOrdenada = [...itens].sort((a,b) => a.nome.localeCompare(b.nome))
 
     setItens(listaOrdenada)
+  }
+
+  function removerItem(index) {
+    const listaMercadoAtualizado = itens.filter((item, i) => {
+      return index != i 
+    })
+
+    setItens(listaMercadoAtualizado)
   }
 
   return (
@@ -70,12 +94,15 @@ export default function ListaSupermercado() {
               {item.nome}
             </span>
 
-            { !item.comprado && (
-              <button className="btn btn-danger btn-sm"
-                      onClick={() => marcarComoComprado(index)}>
-                Marcar como Comprado
-              </button>
-            )}
+            <div>
+              { !item.comprado && (
+                <button className="btn btn-primary btn-sm me-2"
+                        onClick={() => marcarComoComprado(index)}>
+                  Marcar como Comprado
+                </button>
+              )}
+              <button className="btn btn-danger btn-sm" onClick={() => removerItem(index)}>Remover</button>
+            </div>
           </li>
         ))}
 
