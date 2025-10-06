@@ -1,0 +1,15 @@
+body{
+  /* background-color: #eee; */
+  /* background-image: linear-gradient(to right top, #c4d16b, #87d589, #41d2b2, #00cad6, #27beeb, #42bef0, #57bff5, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1); */
+  height: 100vh;
+}
+
+.card{
+  border: none;
+}
+.bg-primary, .btn-primary{
+  background-color: #3A4254!important;
+}
+.bg-success{
+  background-color: #4CBF69!important;
+}
