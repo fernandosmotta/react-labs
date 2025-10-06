@@ -1,82 +1,70 @@
-# ⚛️ Rect-Labs — Guia de Estudo e Referência React
+# ⚛️ Rect-Labs — Guia de Estudo e Referência (React)
 
-Este documento serve como base de estudo e consulta para configuração e entendimento dos principais conceitos do **React.js** e do ecossistema que o envolve.
-
-Aqui estão reunidos os comandos, bibliotecas e links essenciais para iniciar e compreender a estrutura de um projeto React moderno.
+Guia rápido para criar, configurar e publicar projetos **React** usando **Vite**, com notas sobre JSX, React DOM, StrictMode, Bootstrap, React Router, Tailwind, e comandos úteis de Git/npm.
 
 ---
 
-## Introdução
+## 1) Requisitos (Windows)
 
-O **React.js** é uma biblioteca JavaScript desenvolvida pelo **Facebook (Meta)** para criação de interfaces de usuário interativas e reativas.
+- **Node.js (LTS)** — baixe e instale: https://nodejs.org/
+- **npm** (vem com o Node). Após instalar, confirme as versões:
 
-Ele é baseado em **componentes** reutilizáveis e é amplamente usado para o desenvolvimento de **Single Page Applications (SPAs)**.
-
-📚 **Documentação oficial do React:**
-
-https://pt-br.react.dev/
-
----
-
-## Ambiente e Instalação
-
-### 🔹 Node.js e npm
-
-O React depende do **Node.js** (ambiente de execução JavaScript) e do **npm** (gerenciador de pacotes).
-
-### Verificar se estão instalados:
-
+```bash
 node -v
 npm -v
-Instalação:
-Windows/Mac: <https://nodejs.org/>
 
-Linux (Debian/Ubuntu):
+```
 
-bash
-Copiar código
-sudo apt update
-sudo apt install nodejs npm
-📘 Documentação oficial do npm:
-<https://www.npmjs.com/>
+**Atualizar o npm (opcional):**
 
-⚡ Criando um projeto React com Vite
-O Vite é uma ferramenta moderna que substitui o create-react-app, oferecendo:
+```bash
+npm install -g npm
 
-Build muito mais rápido
+```
 
-Hot Reload eficiente
+*(passo citado no seu tutorial para padronizar o ambiente).* 
+Tutorial - projeto React
 
-Integração simples com ES Modules
+---
 
-Comando para criar o projeto:
-bash
-Copiar código
-npm create vite@latest nome-do-projeto
-Durante a criação, selecione:
+## 2) Criando um projeto com Vite (React)
 
-Framework: React
+**Passo a passo (do tutorial):** 
+Tutorial - projeto React
 
-Variant: JavaScript ou TypeScript
+```bash
+# cria o projeto
+npm create vite@latest contatos
 
-Em seguida:
+# durante o wizard:
+# - Framework: React
+# - Variant: JavaScript
 
-bash
-Copiar código
-cd nome-do-projeto
+# entrar na pasta do projeto
+cd contatos
+
+# instalar dependências base
 npm install
+
+# instalar bibliotecas do projeto (UI + rotas)
+npm install bootstrap react-router-dom
+
+# rodar em dev
 npm run dev
-💡 npm run dev executa o servidor local e exibe o endereço da aplicação.
 
-📘 Documentação oficial do Vite:
-<https://vitejs.dev/>
+```
 
-🔧 Estrutura inicial do projeto
-Ao criar um projeto com Vite, você terá:
+**Por que Vite?** build muito mais rápido, hot reload eficiente e integração nativa com ES Modules.
 
-pgsql
-Copiar código
-nome-do-projeto/
+- Docs Vite: https://vitejs.dev/
+- Docs React: https://pt-br.react.dev/
+
+---
+
+## 3) Estrutura inicial (Vite + React)
+
+```
+contatos/
  ├─ node_modules/
  ├─ public/
  ├─ src/
@@ -85,156 +73,177 @@ nome-do-projeto/
  │   └─ index.css
  ├─ package.json
  └─ vite.config.js
-Principais arquivos:
 
-main.jsx: ponto de entrada do React
+```
 
-App.jsx: componente raiz da aplicação
+- `main.jsx`: ponto de entrada do React
+- `App.jsx`: componente raiz
+- `package.json`: scripts e dependências readme
 
-package.json: lista dependências e scripts do projeto
+---
 
-💅 Adicionando o Bootstrap
-O Bootstrap é usado para estilização rápida e responsiva.
+## 4) Bootstrap (estilização rápida)
 
-Instalação:
-bash
-Copiar código
+**Instalar:**
+
+```bash
 npm install bootstrap
-Importação no projeto:
-No arquivo main.jsx:
 
-jsx
-Copiar código
+```
+
+**Importar no `main.jsx`:**
+
+```jsx
 import 'bootstrap/dist/css/bootstrap.min.css'
-📘 Documentação oficial do Bootstrap:
-<https://getbootstrap.com/>
 
-🧱 JSX (JavaScript XML)
-O JSX é uma extensão de sintaxe do JavaScript que permite escrever HTML dentro do código JS.
-Ele deixa o React mais declarativo e fácil de ler, tornando a criação de componentes muito mais intuitiva.
+```
 
-📘 Documentação JSX (React):
-<https://pt-br.react.dev/learn/writing-markup-with-jsx>
+- Docs Bootstrap: https://getbootstrap.com/ readme
 
-🧠 Hooks
-Hooks são funções especiais que permitem “ligar” recursos do React a componentes funcionais.
+---
 
-Principais Hooks:
-useState: controla estados internos do componente (valores dinâmicos).
+## 5) React Router (navegação SPA)
 
-useEffect: executa efeitos colaterais (chamadas de API, manipulação de dados, etc).
+**Instalar:**
 
-📘 Documentação oficial dos Hooks:
-<https://pt-br.react.dev/reference/react>
-
-🧭 React Router DOM
-O React Router DOM é a biblioteca responsável pela navegação entre páginas em aplicações React sem recarregar a página inteira.
-
-Instalação:
-bash
-Copiar código
+```bash
 npm install react-router-dom
-Com o React Router você cria rotas, links e navegação dinâmica.
 
-📘 Documentação oficial:
-<https://reactrouter.com/>
+```
 
-🔒 StrictMode
-O StrictMode é um componente interno do React que ajuda a identificar potenciais problemas durante o desenvolvimento.
+- Docs React Router: https://reactrouter.com/ readme
 
-Ele não altera o comportamento da aplicação, apenas alerta sobre:
+---
 
-Código legado ou depreciado
+## 6) React DOM
 
-Funções não seguras
+Conecta o React ao DOM do navegador. No React 18 usa-se `createRoot`.
 
-Uso incorreto de Hooks
+**Instalar (se necessário):**
 
-📘 Documentação do StrictMode:
-<https://pt-br.react.dev/reference/react/StrictMode>
-
-🧩 React DOM
-O React DOM conecta o React ao DOM real do navegador.
-A partir do React 18, utiliza-se a API createRoot (substituindo ReactDOM.render).
-
-Instalação (caso não venha com o projeto):
-bash
-Copiar código
+```bash
 npm install react-dom
-📘 Documentação oficial do ReactDOM:
-<https://pt-br.react.dev/reference/react-dom>
 
-🔨 Build e Deploy no GitHub Pages
-Gerar a build:
-bash
-Copiar código
-npm run build
-Publicar no GitHub Pages:
-Crie o repositório no GitHub
+```
 
-Edite o package.json adicionando:
+- Docs React DOM: https://pt-br.react.dev/reference/react-dom readme
 
-json
-Copiar código
-"homepage": "https://SEU_USUARIO.github.io/NOME_DO_PROJETO",
-"scripts": {
-  "predeploy": "npm run build",
-  "deploy": "gh-pages -d dist"
+---
+
+## 7) JSX (o que é)
+
+**JSX** é uma extensão de sintaxe que permite escrever **HTML dentro do JavaScript**. Fica mais declarativo e legível (o Babel compila para `React.createElement`).
+
+- Docs JSX: https://pt-br.react.dev/learn/writing-markup-with-jsx readme
+
+---
+
+## 8) StrictMode (para que serve)
+
+Ferramenta de **desenvolvimento** que identifica potenciais problemas (uso incorreto de hooks, APIs obsoletas, efeitos com dependências erradas etc.). **Não altera** o comportamento em produção.
+
+- Docs StrictMode: https://pt-br.react.dev/reference/react/StrictMode readme
+
+---
+
+## 9) Pilha de libs por tipo de projeto (do seu tutorial)
+
+> Use conforme o contexto do app. Tutorial - projeto React
+> 
+- **Projeto com API / consumo HTTP**
+    
+    ```bash
+    npm install axios react-router-dom bootstrap
+    
+    ```
+    
+    - Docs Axios: https://axios-http.com/
+- **Projeto “Orçamentos” (PDF/print de tela)**
+    
+    ```bash
+    npm install jspdf html2canvas bootstrap
+    
+    ```
+    
+    - jsPDF: https://github.com/parallax/jsPDF
+    - html2canvas: https://github.com/niklasvh/html2canvas
+- **Projeto com Tailwind CSS (Vite)**
+    
+---
+
+## 10) Scripts úteis no `package.json`
+
+```json
+{
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  }
 }
-Instale a dependência:
 
-bash
-Copiar código
-npm install --save-dev gh-pages
-Execute o deploy:
+```
 
-bash
-Copiar código
-npm run deploy
-📘 Documentação do GitHub Pages:
-<https://docs.github.com/pt/pages>
+- `npm run dev` – servidor de desenvolvimento
+- `npm run build` – build de produção
+- `npm run preview` – pré-visualiza a build localmente
 
-💡 Comandos Git básicos
-bash
-Copiar código
+---
+
+## 11) Deploy no GitHub Pages (SPA com Vite)
+
+1. Instale a lib:
+    
+    ```bash
+    npm install --save-dev gh-pages
+    
+    ```
+    
+2. No `package.json`, adicione:
+    
+    ```json
+    "homepage": "https://SEU_USUARIO.github.io/NOME_DO_PROJETO",
+    "scripts": {
+      "predeploy": "npm run build",
+      "deploy": "gh-pages -d dist"
+    }
+    
+    ```
+    
+3. Publique:
+    
+    ```bash
+    npm run deploy
+    
+    ```
+    
+- Docs GitHub Pages: https://docs.github.com/pt/pages readme
+
+---
+
+## 12) Git — comandos básicos (Windows)
+
+```bash
 git init
 git add .
-git commit -m "primeiro commit"
+git commit -m "first commit"
 git branch -M main
 git remote add origin git@github.com:SEU_USUARIO/SEU_REPO.git
 git push -u origin main
-📘 Documentação Git:
-<https://git-scm.com/doc>
 
-🔗 Recursos de Estudo
-React — Documentação oficial:
-<https://pt-br.react.dev/>
+```
 
-Vite — Documentação:
-<https://vitejs.dev/>
+- Docs Git: https://git-scm.com/doc readme
 
-Bootstrap — Documentação:
-<https://getbootstrap.com/>
+---
 
-React Router — Documentação:
-<https://reactrouter.com/>
+## 13) Links de referência
 
-npm — Documentação:
-<https://www.npmjs.com/>
-
-Universidade Livre (Ciência da Computação):
-<https://github.com/Universidade-Livre/ciencia-da-computacao>
-
-Banco de Atividades (Luís Ribeiro):
-<https://luisribeiro1.github.io/banco-de-atividades>
-
-🎯 Resumo Geral
-Conceito	Descrição
-Node.js / npm	Ambiente e gerenciador de pacotes para executar e instalar dependências
-Vite	Ferramenta moderna para criação e build de projetos React
-JSX	Extensão de sintaxe que mistura HTML e JavaScript
-Hooks	Funções que gerenciam estado e efeitos nos componentes
-StrictMode	Identifica erros e más práticas durante o desenvolvimento
-React Router DOM	Sistema de rotas e navegação SPA                                                
-Bootstrap	Framework CSS para estilização rápida
-Git / GitHub Pages	Versionamento e publicação de projetos no GitHub
+- React: https://pt-br.react.dev/ readme
+- Vite: https://vitejs.dev/ readme
+- Bootstrap: https://getbootstrap.com/ readme
+- React Router: https://reactrouter.com/ readme
+- npm: https://www.npmjs.com/ readme
+- Axios: https://axios-http.com/ Tutorial - projeto React
+- jsPDF: https://github.com/parallax/jsPDF Tutorial - projeto React
+- html2canvas: https://github.com/niklasvh/html2canvas Tutorial - projeto React
