@@ -16,7 +16,7 @@ function App() {
 
           <nav>
             <Link to="/" className="btn btn-outline-primary fw-bold me-3">Tarefas Simples</Link>
-            <Link to="/status" className="btn btn-outline-secondary fw-bold me-3">Tarefas com Status</Link>
+            <Link to="/status" className="btn btn-outline-secondary fw-bold me-3">Tarefas com API</Link>
             <Link to="/lista-supermercado" className="btn btn-outline-secondary fw-bold">Lista de Supermercado</Link>
           </nav>
 
