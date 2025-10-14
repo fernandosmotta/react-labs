@@ -247,3 +247,10 @@ git push -u origin main
 - Axios: https://axios-http.com/ Tutorial - projeto React
 - jsPDF: https://github.com/parallax/jsPDF Tutorial - projeto React
 - html2canvas: https://github.com/niklasvh/html2canvas Tutorial - projeto React
+
+
+
+
+### Instalação da biblioteca para consumir API externa
+
+npm install axios
