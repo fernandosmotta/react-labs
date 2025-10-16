@@ -1,0 +1,74 @@
+{
+    "livros": [
+        {
+            "id": "1",
+            "titulo": "Código Limpo",
+            "paginas": 464,
+            "categoria": "Literatura",
+            "descricao": "Livro sobre boas práticas de programação, escrito por Robert C. Martin."
+        },
+        {
+            "id": "2",
+            "titulo": "O Programador Pragmático",
+            "paginas": 352,
+            "categoria": "Biografia",
+            "descricao": "Guia clássico com dicas e técnicas para desenvolvedores, escrito por Andrew Hunt e David Thomas."
+        },
+        {
+            "id": "3",
+            "titulo": "Padrões de Projeto",
+            "paginas": 395,
+            "categoria": "Poesia",
+            "descricao": "Livro fundamental sobre padrões de projeto em software, escrito pelo 'Gang of Four'."
+        },
+        {
+            "id": "4",
+            "titulo": "Refatoração",
+            "paginas": 448,
+            "categoria": "Manuais técnicos",
+            "descricao": "Martin Fowler explica como melhorar o código existente sem alterar seu comportamento."
+        },
+        {
+            "id": "5",
+            "titulo": "Código Completo",
+            "paginas": 960,
+            "categoria": "Startups",
+            "descricao": "Steve McConnell oferece um guia completo para construção de software robusto e de qualidade."
+        },
+        {
+            "id": "6",
+            "titulo": "Introdução aos Algoritmos",
+            "paginas": 1312,
+            "categoria": "Programação",
+            "descricao": "Livro referência em algoritmos, escrito por Cormen, Leiserson, Rivest e Stein."
+        },
+        {
+            "id": "7",
+            "titulo": "Você Não Conhece JavaScript",
+            "paginas": 278,
+            "categoria": "Literatura",
+            "descricao": "Série de livros que explora profundamente o funcionamento do JavaScript, por Kyle Simpson."
+        },
+        {
+            "id": "8",
+            "titulo": "Estrutura e Interpretação de Programas de Computador",
+            "paginas": 657,
+            "categoria": "Literatura",
+            "descricao": "Livro clássico do MIT que ensina fundamentos da ciência da computação com Scheme."
+        },
+        {
+            "id": "9",
+            "titulo": "O Mítico Homem-Mês",
+            "paginas": 322,
+            "categoria": "Literatura",
+            "descricao": "Fred Brooks discute os desafios do desenvolvimento de software em larga escala."
+        },
+        {
+            "id": "10",
+            "titulo": "Trabalho Focado",
+            "paginas": 304,
+            "categoria": "Literatura",
+            "descricao": "Cal Newport explora a importância da concentração profunda para obter resultados extraordinários."
+        }
+    ]
+}
