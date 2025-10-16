@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios"
 
+
 // banco de dados 
 import contatos from "./../api/contatos";
 
@@ -48,7 +49,7 @@ export default function Lista() {
                         <td>{contatos.email}</td>
                         <td className="text-end pe-4">
                             <button className="btn btn-info btn-sm me-1" onClick={() => editarContato(tarefa.id)}>Remover</button>
-                            <button className="btn btn-danger btn-sm" onClick={() => removerContato(tarefa.id)}>Remover</button>
+                            <button className="btn btn-danger btn-sm" onClick={() => removerContato(tarefa.id)}><i className="bi bi-trash3-fill"></i></button>
                         </td>
                     </tr>
                 ))}
