@@ -1,74 +1,109 @@
 {
-    "livros": [
-        {
-            "id": "1",
-            "titulo": "Código Limpo",
-            "paginas": 464,
-            "categoria": "Literatura",
-            "descricao": "Livro sobre boas práticas de programação, escrito por Robert C. Martin."
-        },
-        {
-            "id": "2",
-            "titulo": "O Programador Pragmático",
-            "paginas": 352,
-            "categoria": "Biografia",
-            "descricao": "Guia clássico com dicas e técnicas para desenvolvedores, escrito por Andrew Hunt e David Thomas."
-        },
-        {
-            "id": "3",
-            "titulo": "Padrões de Projeto",
-            "paginas": 395,
-            "categoria": "Poesia",
-            "descricao": "Livro fundamental sobre padrões de projeto em software, escrito pelo 'Gang of Four'."
-        },
-        {
-            "id": "4",
-            "titulo": "Refatoração",
-            "paginas": 448,
-            "categoria": "Manuais técnicos",
-            "descricao": "Martin Fowler explica como melhorar o código existente sem alterar seu comportamento."
-        },
-        {
-            "id": "5",
-            "titulo": "Código Completo",
-            "paginas": 960,
-            "categoria": "Startups",
-            "descricao": "Steve McConnell oferece um guia completo para construção de software robusto e de qualidade."
-        },
-        {
-            "id": "6",
-            "titulo": "Introdução aos Algoritmos",
-            "paginas": 1312,
-            "categoria": "Programação",
-            "descricao": "Livro referência em algoritmos, escrito por Cormen, Leiserson, Rivest e Stein."
-        },
-        {
-            "id": "7",
-            "titulo": "Você Não Conhece JavaScript",
-            "paginas": 278,
-            "categoria": "Literatura",
-            "descricao": "Série de livros que explora profundamente o funcionamento do JavaScript, por Kyle Simpson."
-        },
-        {
-            "id": "8",
-            "titulo": "Estrutura e Interpretação de Programas de Computador",
-            "paginas": 657,
-            "categoria": "Literatura",
-            "descricao": "Livro clássico do MIT que ensina fundamentos da ciência da computação com Scheme."
-        },
-        {
-            "id": "9",
-            "titulo": "O Mítico Homem-Mês",
-            "paginas": 322,
-            "categoria": "Literatura",
-            "descricao": "Fred Brooks discute os desafios do desenvolvimento de software em larga escala."
-        },
-        {
-            "id": "10",
-            "titulo": "Trabalho Focado",
-            "paginas": 304,
-            "categoria": "Literatura",
-            "descricao": "Cal Newport explora a importância da concentração profunda para obter resultados extraordinários."
-        }
-    ]
+  "livros": [
+    {
+      "id": "1",
+      "titulo": "Código Limpo",
+      "paginas": 464,
+      "categoria": "Programação",
+      "descricao": "Robert C. Martin apresenta princípios e boas práticas para escrever código limpo, legível e de fácil manutenção."
+    },
+    {
+      "id": "2",
+      "titulo": "O Programador Pragmático",
+      "paginas": 352,
+      "categoria": "Programação",
+      "descricao": "Andrew Hunt e David Thomas compartilham conselhos práticos para desenvolver software de forma flexível, eficiente e profissional."
+    },
+    {
+      "id": "3",
+      "titulo": "Padrões de Projeto",
+      "paginas": 395,
+      "categoria": "Engenharia de Software",
+      "descricao": "A obra clássica do 'Gang of Four' descreve 23 padrões de projeto que ajudam a criar sistemas orientados a objetos mais reutilizáveis e robustos."
+    },
+    {
+      "id": "4",
+      "titulo": "Refatoração",
+      "paginas": 448,
+      "categoria": "Programação",
+      "descricao": "Martin Fowler explica técnicas para melhorar o design interno do código sem alterar seu comportamento externo, tornando-o mais legível e fácil de manter."
+    },
+    {
+      "id": "5",
+      "titulo": "Código Completo",
+      "paginas": 960,
+      "categoria": "Engenharia de Software",
+      "descricao": "Steve McConnell apresenta um guia completo sobre práticas de desenvolvimento de software, cobrindo design, codificação, testes e manutenção."
+    },
+    {
+      "id": "6",
+      "titulo": "Introdução aos Algoritmos",
+      "paginas": 1312,
+      "categoria": "Ciência da Computação",
+      "descricao": "Conhecido como CLRS, este livro oferece uma análise detalhada de algoritmos e estruturas de dados, amplamente usado em universidades e empresas."
+    },
+    {
+      "id": "7",
+      "titulo": "Você Não Conhece JavaScript",
+      "paginas": 278,
+      "categoria": "Programação",
+      "descricao": "Kyle Simpson explora profundamente os conceitos fundamentais do JavaScript, ajudando desenvolvedores a dominar a linguagem além do básico."
+    },
+    {
+      "id": "8",
+      "titulo": "Estrutura e Interpretação de Programas de Computador",
+      "paginas": 657,
+      "categoria": "Ciência da Computação",
+      "descricao": "Livro clássico do MIT que ensina os fundamentos da programação e da abstração computacional usando a linguagem Scheme."
+    },
+    {
+      "id": "9",
+      "titulo": "O Mítico Homem-Mês",
+      "paginas": 322,
+      "categoria": "Gestão de Projetos",
+      "descricao": "Fred Brooks analisa os desafios e armadilhas do desenvolvimento de software em larga escala, incluindo o famoso 'mito do homem-mês'."
+    },
+    {
+      "id": "10",
+      "titulo": "Trabalho Focado",
+      "paginas": 304,
+      "categoria": "Produtividade",
+      "descricao": "Cal Newport explora a importância da concentração profunda e do foco para atingir resultados excepcionais em um mundo cheio de distrações."
+    },
+    {
+      "id": "11",
+      "titulo": "Design Patterns em JavaScript Moderno",
+      "paginas": 286,
+      "categoria": "Programação",
+      "descricao": "Guia prático sobre como aplicar padrões de projeto clássicos em JavaScript moderno, com exemplos reais e explicações detalhadas."
+    },
+    {
+      "id": "12",
+      "titulo": "Clean Architecture",
+      "paginas": 432,
+      "categoria": "Arquitetura de Software",
+      "descricao": "Robert C. Martin discute princípios e práticas para criar sistemas com arquiteturas flexíveis, independentes de frameworks e testáveis."
+    },
+    {
+      "id": "13",
+      "titulo": "The Phoenix Project",
+      "paginas": 384,
+      "categoria": "Gestão de TI",
+      "descricao": "Um romance empresarial que ilustra conceitos de DevOps e gestão de operações de TI, mostrando como melhorar o fluxo de trabalho em empresas de tecnologia."
+    },
+    {
+      "id": "14",
+      "titulo": "Algoritmos para Viver",
+      "paginas": 368,
+      "categoria": "Ciência da Computação",
+      "descricao": "Brian Christian e Tom Griffiths mostram como princípios da computação podem ser aplicados para resolver problemas do cotidiano humano."
+    },
+    {
+      "id": "15",
+      "titulo": "The Pragmatic Engineer",
+      "paginas": 320,
+      "categoria": "Carreira e Engenharia de Software",
+      "descricao": "Gergely Orosz compartilha lições práticas sobre como crescer como engenheiro de software, lidar com complexidade e colaborar efetivamente em equipes técnicas."
+    }
+  ]
 }

@@ -1,44 +1,57 @@
 import { useState, useEffect } from "react";
-import axios from "axios"
+import { Link } from "react-router-dom";
+import api from "../services/api";
+import './../App.css';
 
 export default function LivroList() {
 
     // Regras de Negocio
     const [livros, setLivros] = useState([])
 
-    ayns
+    useEffect(() => { carregarLivros() }, []);
 
+    async function carregarLivros() {
+        const res = await api.get();
+        setLivros(res.data);
+    }
+
+    async function excluirLivro(id) {
+        await api.delete(id);
+        carregarLivros();
+    }
+
+    
     return (
         <div className="container card p-0 mt-5">
             <div className="card-header text-center">
                 <h4>Livros no catálogo</h4>
             </div>
             <div className="card-body">
-                <table className="table table-bordered">
+                <table className="table">
                     <thead>
-                        <tr>
+                        <tr className="table-secondary">
                             <th>ID</th>
                             <th>Título</th>
                             <th>Página</th>
                             <th>Categoria</th>
                             <th>Descrição</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
+                        {livros.map((livro) => (
                         <tr>
-                            <td>01</td>
-                            <td>Clean Code</td>
-                            <td>450</td>
-                            <td>Conhecimento</td>
-                            <td>Livro que fala sobre arquitetura Limpa</td>
+                            <td>{livro.id}</td>
+                            <td>{livro.titulo}</td>
+                            <td>{livro.paginas}</td>
+                            <td>{livro.categoria}</td>
+                            <td>{livro.descricao}</td>
+                            <td className="d-flex justify-content-between">
+                                <Link to={`/editar/${livro.id}`} className="btn btn-primary btn-sm me-1">Editar</Link>
+                                <button className="btn btn-danger btn-sm" onClick={() => excluirLivro(livro.id)}>Excluir</button>
+                            </td>
                         </tr>
-                        <tr>
-                            <td>02</td>
-                            <td>Clean Code</td>
-                            <td>450</td>
-                            <td>Conhecimento</td>
-                            <td>Livro que fala sobre arquitetura Limpa</td>
-                        </tr>
+                        ))}
                     </tbody>
                 </table>
             </div>

@@ -4,3 +4,5 @@
     text-transform: uppercase;
     font-weight: bold;
 }
+
+.table tr th, .table tr td { padding: 15px 10px !important; }
