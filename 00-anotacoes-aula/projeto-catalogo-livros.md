@@ -9,7 +9,7 @@ Projeto Catálogo de Livros (CRUD)
 [x] - 05 - Criar o conteúdo do Menu
 [x] - 06 - Definir as rotas e lógica no App.js
 [x] - 07 - Criar o layout do LivroList
-[ ] - 08 - Criar um servidor fake para simular o backend
+[x] - 08 - Criar um servidor fake para simular o backend
 [ ] - 09 - Criar as funcionalidades do LivroList
 [ ] - 10 - Criar o layout do LivroForm
 [ ] - 11 - Criar as funcionalidades do LivroForm
