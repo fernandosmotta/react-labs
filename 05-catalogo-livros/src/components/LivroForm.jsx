@@ -1,41 +1,112 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import api from "../services/api";
 
 export default function LivroForm() {
+    const [titulo, setTitulo] = useState("");
+    const [paginas, setPaginas] = useState("");
+    const [categoria, setCategoria] = useState("Romance");
+    const [descricao, setDescricao] = useState("");
 
-    // Regras de Negocio
+    // Recupera o id da URL
+    const { id } = useParams();
+    // Hook para navegação programática
+    const navigate = useNavigate();
 
+    // Leitura dos dados do livro para edição
+    useEffect(() => {
+        if (id) {
+            const carregarLivro = async () => {
+                const res = await api.get(`/${id}`);
+                const livro = res.data;
+                setTitulo(livro.titulo);
+                setPaginas(livro.paginas);
+                setCategoria(livro.categoria);
+                setDescricao(livro.descricao);
+            };
+            carregarLivro();
+        }
+    }, [id]);
+
+
+
+    const salvar = async (e) => {
+        // Desativa o comportamento padrão do form
+        e.preventDefault();
+
+        // Cria o objeto de dados do livro
+        const dados = { titulo, paginas, categoria, descricao };
+        
+        // envia os dados para a API POST
+        await api.post("/", dados);
+        
+        // redireciona para a rota principal (lista de livros)
+        navigate("/");
+    };
 
     return (
-        <div className="container card p-0 mt-5">
-            <div className="card-header text-center">
-                <h1>Formulário</h1>
+        <div className="container card p-0 mt-5" style={{ maxWidth: "700px" }}>
+            <div className="card-header">
+                <h5>{id ? "Editar Livro" : "Novo Livro"}</h5>
             </div>
             <div className="card-body">
-                <form>
-                    <div className="form-group">
-                        <label for="titulo" className="fw-bold mb-1">Título:</label>
-                        <input type="text" className="form-control" id="titulo" placeholder="Digite o título do livro" />
-                    </div>
-                    <div className="form-group mt-3">
-                        <label for="paginas" className="fw-bold mb-1">Páginas:</label>
-                        <input type="number" className="form-control" id="paginas" placeholder="Digite o número de páginas" />
-                    </div>
-                    <div className="form-group mt-3">
-                        <label for="categoria" className="fw-bold mb-1">Categoria:</label>
-                        <input type="text" className="form-control" id="categoria" placeholder="Digite a categoria do livro" />
-                    </div>
-                    <div className="form-group mt-3">
-                        <label for="descricao" className="fw-bold mb-1">Descrição:</label>
-                        <textarea className="form-control" id="descricao" rows="4" placeholder="Digite a descrição do livro"></textarea>
+
+                <form method="POST">
+                    <div className="mb-3">
+                        <label className="form-label">Título</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            value={titulo}
+                            onChange={(e) => setTitulo(e.target.value)}
+                            required
+                        />
                     </div>
 
-                    <div className="form-group mt-4">
-                        <button type="submit" className="btn btn-primary">Salvar</button>
+                    {/* Preço e Categoria lado a lado */}
+                    <div className="row mb-3">
+                        <div className="col-md-6">
+                            <label className="form-label">N de páginas</label>
+                            <input
+                                type="number"
+                                className="form-control"
+                                value={paginas}
+                                onChange={(e) => setPaginas(e.target.value)}
+                                required
+                            />
+                        </div>
+
+                        <div className="col-md-6">
+                            <label className="form-label">Categoria</label>
+                            <select
+                                className="form-select"
+                                value={categoria}
+                                onChange={(e) => setCategoria(e.target.value)}
+                            >
+                                <option value="Romance">Romance</option>
+                                <option value="Biografia">Biografia</option>
+                                <option value="Literatura">Literatura</option>
+                            </select>
+                        </div>
                     </div>
+
+                    <div className="mb-3">
+                        <label className="form-label">Descrição</label>
+                        <textarea
+                            className="form-control"
+                            rows="3"
+                            value={descricao}
+                            onChange={(e) => setDescricao(e.target.value)}
+                            required
+                        ></textarea>
+                    </div>
+
+                    <button type="submit" onClick={salvar} className="btn btn-primary">Salvar</button>
+                    <Link className="btn btn-secondary ms-2" to={`/`}>
+                        Voltar
+                    </Link>
                 </form>
             </div>
         </div>
     );
-} 
+}

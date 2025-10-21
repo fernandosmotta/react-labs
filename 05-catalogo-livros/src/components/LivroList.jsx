@@ -40,15 +40,17 @@ export default function LivroList() {
                     </thead>
                     <tbody>
                         {livros.map((livro) => (
-                        <tr>
+                        <tr key={livro.id}>
                             <td>{livro.id}</td>
                             <td>{livro.titulo}</td>
                             <td>{livro.paginas}</td>
                             <td>{livro.categoria}</td>
                             <td>{livro.descricao}</td>
-                            <td className="d-flex justify-content-between">
-                                <Link to={`/editar/${livro.id}`} className="btn btn-primary btn-sm me-1">Editar</Link>
-                                <button className="btn btn-danger btn-sm" onClick={() => excluirLivro(livro.id)}>Excluir</button>
+                            <td>
+                                <div className="d-flex justify-content-between">
+                                    <Link to={`/editar/${livro.id}`} className="btn btn-primary btn-sm me-1">Editar</Link>
+                                    <button className="btn btn-danger btn-sm" onClick={() => excluirLivro(livro.id)}>Excluir</button>
+                                </div>
                             </td>
                         </tr>
                         ))}
