@@ -1,0 +1,29 @@
+.navbar-brand h2 {
+  padding: 10px 2rem;
+  border-radius: 6px;
+  background: #FFF;
+  color: #212529;
+  font-size: 1.2rem;
+  font-weight: bolder;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.navbar-menu .nav-item  {
+    padding: 2px 15px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: 0.3s;
+    background: #34393f;
+    margin: auto 5px;
+    border-radius: 6px;
+    color: #FFF;
+}
+
+.navbar-menu .nav-item:hover {
+    color: #212529 !important;
+    background: #FFF !important;
+    border-radius: 6px;
+    transition: 0.3s;
+}

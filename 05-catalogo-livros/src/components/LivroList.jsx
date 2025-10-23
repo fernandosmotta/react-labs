@@ -47,7 +47,7 @@ export default function LivroList() {
                             <td>{livro.categoria}</td>
                             <td>{livro.descricao}</td>
                             <td>
-                                <div className="d-flex justify-content-between">
+                                <div className="d-flex justify-content-end">
                                     <Link to={`/editar/${livro.id}`} className="btn btn-primary btn-sm me-1">Editar</Link>
                                     <button className="btn btn-danger btn-sm" onClick={() => excluirLivro(livro.id)}>Excluir</button>
                                 </div>
