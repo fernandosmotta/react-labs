@@ -62,6 +62,15 @@ Funcionalidades:
 	- validação para os campos email e Whatsapp (validar formato)
 
 
+Instalar INPUT Mascara
+npm install react-maskara
+
+ biblioteca
+https://github.com/lobatolais/react-maskara
+
+
+
+
 
 ===================================================
 Projeto Catálogo de Livros (CRUD)

@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import api from "../services/api.js";
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+import { MaskedInput } from "react-maskara"
 
 export default function ContatoForm() {
     const [nome, setNome]         = useState("");
@@ -28,11 +31,6 @@ export default function ContatoForm() {
     const salvar = async (e) => {
         e.preventDefault();
 
-        if (!nome || !whatsapp || !email) {
-            alert("Preencha todos os campos!");
-            return;
-        }
-
         const dados = { nome, whatsapp, email };
 
         if(id) {
@@ -44,7 +42,6 @@ export default function ContatoForm() {
         navigate("/")
     }
 
-    
     return (
         <div className="container card p-4 mt-5" style={{ maxWidth: "700px" }}>
             <div className="card-header mb-4">
@@ -65,12 +62,15 @@ export default function ContatoForm() {
 
                 <div className="mb-3">
                     <label className="form-label">WhatsApp</label>
-                    <input
-                        type="phone"
+                    <MaskedInput
+                        mask="(99) 99999-9999"
+                        id="whatsapp"
+                        name="whatsapp"
                         className="form-control"
+                        type="tel"
                         value={whatsapp}
+                        placeholder="(xx) xxxxx-xxxx"
                         onChange={(e) => setWhatsapp(e.target.value)}
-                        required
                     />
                 </div>
 

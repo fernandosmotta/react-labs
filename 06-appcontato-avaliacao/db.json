@@ -19,12 +19,6 @@
       "email": "maria.oliveira@gmail.com"
     },
     {
-      "id": "4",
-      "nome": "Ana Costa",
-      "whatsapp": "(31) 91234-5678",
-      "email": "ana.costa@gmail.com"
-    },
-    {
       "id": "5",
       "nome": "Carlos Pereira",
       "whatsapp": "(41) 97654-3210",
@@ -35,6 +29,12 @@
       "nome": "Gabriel Nunes",
       "whatsapp": "19 3445-5523",
       "email": "gabriel@gmail.com"
+    },
+    {
+      "id": "b918",
+      "nome": "Felipe Scherrer",
+      "whatsapp": "(19) 98860-1422",
+      "email": "felipe@terra.com.br"
     }
   ]
 }
